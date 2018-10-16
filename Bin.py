@@ -1,5 +1,4 @@
-def des_int():
-    global i
+def des_int(i):
     dii = i
     if int(dii):
         dii = int(dii)
@@ -33,8 +32,7 @@ def des_str():
     pass
 
 
-def des_float():
-    global i
+def des_float(i):
     dft = len(i)
     dfr = dft - 1
     dfi = i.replace(',' and '.' and '.' and ',', '.')
@@ -105,7 +103,6 @@ def bin():
 
 
 def des():
-    global i
     i = input('\nВведите :')
     db = bool(False)
     dbb = bool(False)
@@ -114,9 +111,9 @@ def des():
     dg = df.replace(',' and '.' and ',' and '.', '', 1)
     dbb = dg.isdigit()
     if db == True and dbb == True:
-        des_int()
+        des_int(i)
     if db == False and dbb == True:
-        des_float()
+        des_float(i)
     if db == False and dbb == False:
         des_str()
 

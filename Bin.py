@@ -1,3 +1,25 @@
+def check_float_point (i, dabe) :
+    dft = len(i)
+    dfr = dft - 1
+    i.replace(',' and '.' and '.' and ',', '.')
+    dfq = 0
+    while True:
+        if i[dfq] == '.':
+            dft = dfq
+        dfq += 1
+        if dfq > dfr:
+            if dabe == 1 :
+                des_float()
+def des_input () :
+    diq = input('\nВведите :')
+    diw = 1
+    des_and_bin_float_check (diq, diw)
+
+def bin_input () :
+    biq = input('\nВведите :')
+    biw = 0
+    des_and_bin_float_check(biq, biw)
+
 def des_int(i):
     dii = i
     if int(dii):
@@ -27,29 +49,18 @@ def des_int(i):
         if Dio > dim:
             break
 
-
 def des_str():
     pass
 
-
 def des_float(i):
-    dft = len(i)
-    dfr = dft - 1
-    dfi = i.replace(',' and '.' and '.' and ',', '.')
-    dfq = 0
-    while True:
-        if i[dfq] == '.':
-            dft = dfq
-        dfq += 1
-        if dfq > dfr:
-            break
+    check_float_point(i)
     dfd = i
     dfy = i
     dfy = float(dfy)
     dfc = i[: dft]
     dfc = float(dfc)
     i = i[: dft]
-    des_int()
+    des_int(i)
     dft += 1
     dfm = dfd[dft:]
     dfm = int(dfm)
@@ -76,9 +87,7 @@ def des_float(i):
         if dfz < 0:
             break
 
-
-def bin():
-    i = input('\nВведите :')
+def bin_int(i):
     t = len(i)
     bh = t
     t -= 1
@@ -101,9 +110,12 @@ def bin():
             break
     print(bu)
 
+def bin_float (i) :
+    pass
 
-def des():
-    i = input('\nВведите :')
+def des_and_bin_float_check (dabq, dabw):
+    i = dabq
+    dabe = dabw
     db = bool(False)
     dbb = bool(False)
     db = i.isdigit()
@@ -111,21 +123,26 @@ def des():
     dg = df.replace(',' and '.' and ',' and '.', '', 1)
     dbb = dg.isdigit()
     if db == True and dbb == True:
-        des_int(i)
+        if dabe == 1 :
+            des_int(i)
+        if dabe == 0 :
+            bin_int (i)
     if db == False and dbb == True:
-        des_float(i)
+        if dabe == 1:
+            des_float(i)
+        if dabe == 0:
+            bin_float(i)
     if db == False and dbb == False:
-        des_str()
-
+            des_str()
 
 while True:
     z = input('\nDes or bin? ')
     z = str(z)
     if z == 'd':
-        des()
+        des_input()
         z = 'con'
     if z == 'b':
-        bin()
+        bin_input()
         z = 'con'
     if z == 'end':
         break

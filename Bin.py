@@ -1,4 +1,4 @@
-def check_float_point (i, dabe) :
+def check_float_point (i, iii) :
     dft = len(i)
     dfr = dft - 1
     i.replace(',' and '.' and '.' and ',', '.')
@@ -8,14 +8,20 @@ def check_float_point (i, dabe) :
             dft = dfq
         dfq += 1
         if dfq > dfr:
-            if dabe == 1 :
-                des_float()
+            break
+    if iii == 1 :
+        des_float(i, dft)
+    if iii == 0 :
+        bin_int_and_float (i, dft)
+
 def des_input () :
+    # 2
     diq = input('\nВведите :')
     diw = 1
     des_and_bin_float_check (diq, diw)
 
 def bin_input () :
+    #2
     biq = input('\nВведите :')
     biw = 0
     des_and_bin_float_check(biq, biw)
@@ -52,8 +58,7 @@ def des_int(i):
 def des_str():
     pass
 
-def des_float(i):
-    check_float_point(i)
+def des_float(i, dft):
     dfd = i
     dfy = i
     dfy = float(dfy)
@@ -87,35 +92,38 @@ def des_float(i):
         if dfz < 0:
             break
 
-def bin_int(i):
+def bin_int_and_float(i, biq = 0):
     t = len(i)
-    bh = t
+    bit = t
     t -= 1
+    biafq = t
     bn = t
     bi = 0
     bu = 0
+    if biq != 0 :
+        biafw = []
+        biaf = int(biaf)
+        biafq = len( biaf)
     while True:
-        g = int(i[t])
+        g = int(i[bn])
         if g > 1:
             print('bin - 0 and 1')
-        t -= 1
-        bh -= 1
-        if bh <= 0:
+        bn -= 1
+        if bn <= 0:
             break
     while True:
-        bu = int(i[bi]) * 2 ** bn + bu
+        bu = int(i[bi]) * 2 ** biafq + bu
+        biafq -= 1
         bi += 1
-        bn -= 1
-        if bn < 0:
+        bit -= 1
+        if bit <= 0:
             break
     print(bu)
 
-def bin_float (i) :
-    pass
 
-def des_and_bin_float_check (dabq, dabw):
+def des_and_bin_float_check (dabq, iii):
+    #3
     i = dabq
-    dabe = dabw
     db = bool(False)
     dbb = bool(False)
     db = i.isdigit()
@@ -123,19 +131,17 @@ def des_and_bin_float_check (dabq, dabw):
     dg = df.replace(',' and '.' and ',' and '.', '', 1)
     dbb = dg.isdigit()
     if db == True and dbb == True:
-        if dabe == 1 :
+        if iii == 1 :
             des_int(i)
-        if dabe == 0 :
-            bin_int (i)
+        if iii == 0 :
+            bin_int_and_float (i)
     if db == False and dbb == True:
-        if dabe == 1:
-            des_float(i)
-        if dabe == 0:
-            bin_float(i)
+            check_float_point(i, iii)
     if db == False and dbb == False:
             des_str()
 
 while True:
+    # 1
     z = input('\nDes or bin? ')
     z = str(z)
     if z == 'd':

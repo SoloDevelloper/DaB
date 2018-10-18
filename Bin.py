@@ -12,6 +12,7 @@ def check_float_point (i, iii) :
     if iii == 1 :
         des_float(i, dft)
     if iii == 0 :
+        i = i.replace('.', '')
         bin_int_and_float (i, dft)
 
 def des_input () :
@@ -101,9 +102,9 @@ def bin_int_and_float(i, biq = 0):
     bi = 0
     bu = 0
     if biq != 0 :
-        biafw = []
-        biaf = int(biaf)
-        biafq = len( biaf)
+        biq -= 1
+        biafw = i[:biq]
+        biafq = len(biafw)
     while True:
         g = int(i[bn])
         if g > 1:

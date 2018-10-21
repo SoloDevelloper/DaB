@@ -180,203 +180,208 @@ def bin_str(i):
     bsfe = []
     bsfr = 0
     bsfy = 1
+    bsfq = len(i)
+    bsfw = bsfq / 8
     while True:
+        if bsfy > bsfw :
+            break
         bsfe.append(i[bsfr])
         bsfr += 1
         bsfu = bsfy * 8
         if bsfr >= bsfu:
             ASCII = bsfe
             if ASCII == ['0','0','1','0','0','0','0','0']:
-                print(' ')
+                print(' ', end='')
             if ASCII == ['0','0','1','0','0','0','0','1']:
-                print('!')
+                print('!', end='')
             if ASCII == ['0','0','1','0','0','0','1','0']:
-                print('"')
+                print('"', end='')
             if ASCII == ['0','0','1','0','0','0','1','1']:
-                print('#')
+                print('#', end='')
             if ASCII == ['0','0','1','0','0','1','0','0']:
-                print('$')
+                print('$', end='')
             if ASCII == ['0','0','1','0','0','1','0','1']:
-                print('%')
+                print('%', end='')
             if ASCII == ['0','0','1','0','0','1','1','0']:
-                print('&')
+                print('&', end='')
             if ASCII == ['0','0','1','0','0','1','1','1']:
-                print("'")
+                print("'", end='')
             if ASCII == ['0','0','1','0','1','0','0','0']:
-                print('(')
+                print('(', end='')
             if ASCII == ['0','0','1','0','1','0','0','1']:
-                print(')')
+                print(')', end='')
             if ASCII == ['0','0','1','0','1','0','1','0']:
-                print('*')
+                print('*', end='')
             if ASCII == ['0','0','1','0','1','0','1','1']:
-                print('+')
+                print('+', end='')
             if ASCII == ['0','0','1','0','1','1','0','0']:
-                print(',')
+                print(',', end='')
             if ASCII == ['0','0','1','0','1','1','0','1']:
-                print('-')
+                print('-', end='')
             if ASCII == ['0','0','1','0','1','1','1','0']:
-                print('.')
+                print('.', end='')
             if ASCII == ['0','0','1','0','1','1','1','1']:
-                print('/')
+                print('/', end='')
             if ASCII == ['0','0','1','1','0','0','0','0']:
-                print('0')
+                print('0', end='')
             if ASCII == ['0','0','1','1','0','0','0','1']:
-                print('1')
+                print('1', end='')
             if ASCII == ['0','0','1','1','0','0','1','0']:
-                print('2')
+                print('2', end='')
             if ASCII == ['0','0','1','1','0','0','1','1']:
-                print('3')
+                print('3', end='')
             if ASCII == ['0','0','1','1','0','1','0','0']:
-                print('4')
+                print('4', end='')
             if ASCII == ['0','0','1','1','0','1','0','1']:
-                print('5')
+                print('5', end='')
             if ASCII == ['0','0','1','1','0','1','1','0']:
-                print('6')
+                print('6', end='')
             if ASCII == ['0','0','1','1','0','1','1','1']:
-                print('7')
+                print('7', end='')
             if ASCII == ['0','0','1','1','1','0','0','0']:
-                print('8')
+                print('8', end='')
             if ASCII == ['0','0','1','1','1','0','0','1']:
-                print('9')
+                print('9', end='')
             if ASCII == ['0','0','1','1','1','0','1','0']:
-                print(':')
+                print(':', end='')
             if ASCII == ['0','0','1','1','1','0','1','1']:
-                print(';')
+                print(';', end='')
             if ASCII == ['0','0','1','1','1','1','0','0']:
-                print('<')
+                print('<', end='')
             if ASCII == ['0','0','1','1','1','1','0','1']:
-                print('=')
+                print('=', end='')
             if ASCII == ['0','0','1','1','1','1','1','0']:
-                print('>')
+                print('>', end='')
             if ASCII == ['0','0','1','1','1','1','1','1']:
-                print('?')
+                print('?', end='')
             if ASCII == ['0','1','0','0','0','0','0','0']:
-                print('@')
+                print('@', end='')
             if ASCII == ['0','1','0','0','0','0','0','1']:
-                print('A')
+                print('A', end='')
             if ASCII == ['0','1','0','0','0','0','1','0']:
-                print('B')
+                print('B', end='')
             if ASCII == ['0','1','0','0','0','0','1','1']:
-                print('C')
+                print('C', end='')
             if ASCII == ['0','1','0','0','0','1','0','0']:
-                print('D')
+                print('D', end='')
             if ASCII == ['0','1','0','0','0','1','0','1']:
-                print('E')
+                print('E', end='')
             if ASCII == ['0','1','0','0','0','1','1','0']:
-                print('F')
+                print('F', end='')
             if ASCII == ['0','1','0','0','0','1','1','1']:
-                print('G')
+                print('G', end='')
             if ASCII == ['0','1','0','0','1','0','0','0']:
-                print('H')
+                print('H', end='')
             if ASCII == ['0','1','0','0','1','0','0','1']:
-                print('I')
+                print('I', end='')
             if ASCII == ['0','1','0','0','1','0','1','0']:
-                print('J')
+                print('J', end='')
             if ASCII == ['0','1','0','0','1','0','1','1']:
-                print('K')
+                print('K', end='')
             if ASCII == ['0','1','0','0','1','1','0','0']:
-                print('L')
+                print('L', end='')
             if ASCII == ['0','1','0','0','1','1','0','1']:
-                print('M')
+                print('M', end='')
             if ASCII == ['0','1','0','0','1','1','1','0']:
-                print('N')
+                print('N', end='')
             if ASCII == ['0','1','0','0','1','1','1','1']:
-                print('O')
+                print('O', end='')
             if ASCII == ['0','1','0','1','0','0','0','0']:
-                print('P')
+                print('P', end='')
             if ASCII == ['0','1','0','1','0','0','0','0']:
-                print('Q')
+                print('Q', end='')
             if ASCII == ['0','1','0','1','0','0','1','0']:
-                print('R')
+                print('R', end='')
             if ASCII == ['0','1','0','1','0','0','1','1']:
-                print('S')
+                print('S', end='')
             if ASCII == ['0','1','0','1','0','1','0','0']:
-                print('T')
+                print('T', end='')
             if ASCII == ['0','1','0','1','0','1','0','1']:
-                print('U')
+                print('U', end='')
             if ASCII == ['0','1','0','1','0','1','1','0']:
-                print('V')
+                print('V', end='')
             if ASCII == ['0','1','0','1','0','1','1','1']:
-                print('W')
+                print('W', end='')
             if ASCII == ['0','1','0','1','1','0','0','0']:
-                print('X')
+                print('X', end='')
             if ASCII == ['0','1','0','1','1','0','0','1']:
-                print('Y')
+                print('Y', end='')
             if ASCII == ['0','1','0','1','1','0','1','0']:
-                print('Z')
+                print('Z', end='')
             if ASCII == ['0','1','0','1','1','0','1','1']:
-                print('[')
+                print('[', end='')
             if ASCII == ['0','1','0','1','1','1','0','0']:
-                print('\\')
+                print('\\', end='')
             if ASCII == ['0','1','0','1','1','1','0','1']:
-                print(']')
+                print(']', end='')
             if ASCII == ['0','1','0','1','1','1','1','0']:
-                print('^')
+                print('^', end='')
             if ASCII == ['0','1','0','1','1','1','1','1']:
-                print('_')
+                print('_', end='')
             if ASCII == ['0','1','1','0','0','0','0','0']:
-                print('`')
+                print('`', end='')
             if ASCII == ['0','1','1','0','0','0','0','1']:
-                print('a')
+                print('a', end='')
             if ASCII == ['0','1','1','0','0','0','1','0']:
-                print('b')
+                print('b', end='')
             if ASCII == ['0','1','1','0','0','0','1','1']:
-                print('c')
+                print('c', end='')
             if ASCII == ['0','1','1','0','0','1','0','0']:
-                print('d')
+                print('d', end='')
             if ASCII == ['0','1','1','0','0','1','0','1']:
-                print('e')
+                print('e', end='')
             if ASCII == ['0','1','1','0','0','1','1','0']:
-                print('f')
+                print('f', end='')
             if ASCII == ['0','1','1','0','0','1','1','1']:
-                print('g')
+                print('g', end='')
             if ASCII == ['0','1','1','0','1','0','0','0']:
-                print('h')
+                print('h', end='')
             if ASCII == ['0','1','1','0','1','0','0','1']:
-                print('i')
+                print('i', end='')
             if ASCII == ['0','1','1','0','1','0','1','0']:
-                print('j')
+                print('j', end='')
             if ASCII == ['0','1','1','0','1','0','1','1']:
-                print('k')
+                print('k', end='')
             if ASCII == ['0','1','1','0','1','1','0','0']:
-                print('l')
+                print('l', end='')
             if ASCII == ['0','1','1','0','1','1','0','1']:
-                print('m')
+                print('m', end='')
             if ASCII == ['0','1','1','0','1','1','1','0']:
-                print('n')
+                print('n', end='')
             if ASCII == ['0','1','1','0','1','1','1','1']:
-                print('o')
+                print('o', end='')
             if ASCII == ['0','1','1','1','0','0','0','0']:
-                print('p')
+                print('p', end='')
             if ASCII == ['0','1','1','1','0','0','0','1']:
-                print('q')
+                print('q', end='')
             if ASCII == ['0','1','1','1','0','0','1','0']:
-                print('r')
+                print('r', end='')
             if ASCII == ['0','1','1','1','0','0','1','1']:
-                print('s')
+                print('s', end='')
             if ASCII == ['0','1','1','1','0','1','0','0']:
-                print('t')
+                print('t', end='')
             if ASCII == ['0','1','1','1','0','1','0','1']:
-                print('u')
+                print('u', end='')
             if ASCII == ['0','1','1','1','0','1','1','0']:
-                print('v')
+                print('v', end='')
             if ASCII == ['0','1','1','1','0','1','1','1']:
-                print('w')
+                print('w', end='')
             if ASCII == ['0','1','1','1','1','0','0','0']:
-                print('x')
+                print('x', end='')
             if ASCII == ['0','1','1','1','1','0','0','1']:
-                print('y')
+                print('y', end='')
             if ASCII == ['0','1','1','1','1','0','1','0']:
-                print('z')
+                print('z', end='')
             if ASCII == ['0','1','1','1','1','0','1','1']:
-                print('{')
+                print('{', end='')
             if ASCII == ['0','1','1','1','1','1','0','0']:
-                print('|')
+                print('|', end='')
             if ASCII == ['0','1','1','1','1','1','0','1']:
-                print('}')
+                print('}', end='')
             if ASCII == ['0','1','1','1','1','1','1','0']:
-                print('~')
-    bsfy += 1
+                print('~', end='')
+            bsfy += 1
+            bsfe = []
 
 def des_float(i, dft):
     # 5

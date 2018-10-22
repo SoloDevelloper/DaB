@@ -9,6 +9,8 @@ def bin_check_str(i, diw):
         des_and_bin_float_check(i, diw)
     if i[0] == '0':
         str_funk(i, diw)
+    else:
+        return
 
 def check_float_point(i, iii):
     # 4
@@ -29,13 +31,19 @@ def check_float_point(i, iii):
 
 def des_input():
     # 2
-    diq = input('\nВведите :')
+    diq = input('\n    Введите :')
+    if diq == '':
+        print('    Enter symbol!')
+        return
     diw = 1
     des_and_bin_float_check(diq, diw)
 
 def bin_input():
     # 2
-    biq = input('\nВведите :')
+    biq = input('\n    Введите :')
+    if biq == '':
+        print('    Enter symbol!')
+        return
     biw = 0
     bin_check_str(biq, biw)
 
@@ -165,15 +173,15 @@ def des_str(i):
         '{': '01111011',
         '|': '01111100',
         '}': '01111101',
-        '~': '01111110'
+        '~': '01111110',
     }
     dsw = len(i) - 1
     dse = 0
     while True:
         dsr = i[dse]
-        print(dsq[dsr], end='')
+        print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
         dse += 1
-        if dse > dsw :
+        if dse > dsw:
             break
 
 def bin_str(i):
@@ -430,8 +438,8 @@ def bin_int_and_float(i, biq = 0):
         biafq = len(biafw)
     while True:
         g = int(i[bn])
-        if g > 1:
-            print('bin - 0 and 1')
+        if g != 1 or 0:
+            str_funk(i, 0)
         bn -= 1
         if bn <= 0:
             break
@@ -462,9 +470,10 @@ def des_and_bin_float_check(dabq, iii):
     if db == False and dbb == False:
             des_str(i)
 
+
 while True:
     # 1
-    z = input('\nDes or bin? ')
+    z = input('\n   Des or bin? ')
     z = str(z)
     if z == 'd':
         des_input()

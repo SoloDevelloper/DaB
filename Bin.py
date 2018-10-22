@@ -13,7 +13,7 @@ def bin_check_str(i, diw):
             str_funk(i, diw)
             break
         else:
-            print('bin - 0 and 1')
+            print('    bin - 0 and 1')
             return
 
 def check_float_point(i, iii):
@@ -35,7 +35,7 @@ def check_float_point(i, iii):
 
 def des_input():
     # 2
-    diq = input('\n    Введите :')
+    diq = input('    Введите :')
     if diq == '':
         print('    Enter symbol!')
         return
@@ -44,7 +44,7 @@ def des_input():
 
 def bin_input():
     # 2
-    biq = input('\n    Введите :')
+    biq = input('    Введите :')
     if biq == '':
         print('    Enter symbol!')
         return
@@ -75,6 +75,7 @@ def des_int(i):
     Dio = 0
     dim = len(dip)
     dim -= 1
+    print('    ', end='')
     while True:
         print(dip[Dio], end='')
         Dio += 1
@@ -181,6 +182,7 @@ def des_str(i):
     }
     dsw = len(i) - 1
     dse = 0
+    print('    ', end='')
     while True:
         dsr = i[dse]
         print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
@@ -194,6 +196,7 @@ def bin_str(i):
     bsfy = 1
     bsfq = len(i)
     bsfw = bsfq / 8
+    print('    ', end='')
     while True:
         if bsfy > bsfw :
             break
@@ -442,9 +445,14 @@ def bin_int_and_float(i, biq = 0):
         biafq = len(biafw)
     while True:
         g = int(i[bn])
-        if g != 1 or 0:
-            print('bin - 0 and 1')
-            return
+        if g != 0:
+            if g != 1:
+                print('    bin - 0 and 1')
+                return
+        if g != 1:
+            if g != 0:
+                print('    bin - 0 and 1')
+                return
         bn -= 1
         if bn <= 0:
             break
@@ -455,6 +463,7 @@ def bin_int_and_float(i, biq = 0):
         bit -= 1
         if bit <= 0:
             break
+    print('    ', end='')
     print(bu)
 
 
@@ -474,7 +483,7 @@ def des_and_bin_float_check(dabq, iii):
             check_float_point(i, iii)
     if db == False and dbb == False:
             if iii == 0:
-                print('bin - 0 and 1')
+                print('    bin - 0 and 1')
                 return
             des_str(i)
 

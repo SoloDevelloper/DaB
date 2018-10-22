@@ -5,12 +5,16 @@ def str_funk(i, diw):
         des_str(i)
 
 def bin_check_str(i, diw):
-    if i[0] == '1':
-        des_and_bin_float_check(i, diw)
-    if i[0] == '0':
-        str_funk(i, diw)
-    else:
-        return
+    while True:
+        if i[0] == '1':
+            des_and_bin_float_check(i, diw)
+            break
+        if i[0] == '0':
+            str_funk(i, diw)
+            break
+        else:
+            print('bin - 0 and 1')
+            return
 
 def check_float_point(i, iii):
     # 4
@@ -439,7 +443,8 @@ def bin_int_and_float(i, biq = 0):
     while True:
         g = int(i[bn])
         if g != 1 or 0:
-            str_funk(i, 0)
+            print('bin - 0 and 1')
+            return
         bn -= 1
         if bn <= 0:
             break
@@ -468,6 +473,9 @@ def des_and_bin_float_check(dabq, iii):
     if db == False and dbb == True:
             check_float_point(i, iii)
     if db == False and dbb == False:
+            if iii == 0:
+                print('bin - 0 and 1')
+                return
             des_str(i)
 
 

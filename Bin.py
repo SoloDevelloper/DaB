@@ -35,7 +35,13 @@ def check_float_point(i, iii):
 
 def des_input():
     # 2
+    global z
     diq = input('    Введите :')
+    if diq == '\\back':
+        return
+    if diq == '\\end':
+        z = 'end'
+        return z
     if diq == '':
         print('    Enter symbol!')
         return
@@ -490,15 +496,18 @@ def des_and_bin_float_check(dabq, iii):
 
 while True:
     # 1
+    global z
     z = input('\n   Des or bin? ')
     z = str(z)
     if z == 'd':
         des_input()
+        if z == 'end':
+            break
         z = 'con'
     if z == 'b':
         bin_input()
         z = 'con'
-    if z == 'end':
+    if z == '\end':
         break
     if z == 'con':
         continue

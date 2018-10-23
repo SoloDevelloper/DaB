@@ -1,22 +1,42 @@
-def str_funk(i, diw):
-    if diw == 0:
-        bin_str(i)
-    if diw == 1:
-        des_str(i)
+def language(lan):
+    lan = input('Language:')
+    if lan == 'ang':
+        lan = 'ang'
+        return lan
+    if lan == 'rus':
+        lan = 'rus'
+        return lan
+    if lan == 'ukr':
+        lan = 'ukr'
+        return lan
+    if lan == 'cze':
+        lan = 'cze'
+        return lan
 
-def bin_check_str(i, diw):
+def help_inter(lan):
+    if lan == 'ang':
+        print('    Comand: \end, \\back\n    Des - decimal. Enter: d.\n    Bin - binar. Enter: b')
+    return
+
+def str_funk(i, diw, lan):
+    if diw == 0:
+        bin_str(i, lan)
+    if diw == 1:
+        dec_str(i, lan)
+def bin_check_str(i, diw, lan):
     while True:
         if i[0] == '1':
-            des_and_bin_float_check(i, diw)
+            dec_and_bin_float_check(i, diw, lan)
             break
         if i[0] == '0':
-            str_funk(i, diw)
+            str_funk(i, diw, lan)
             break
         else:
-            print('    bin - 0 and 1')
+            if lan == 'ang':
+                print('    bin - 0 and 1')
             return
 
-def check_float_point(i, iii):
+def check_float_point(i, iii, lan):
     # 4
     dft = len(i)
     dfr = dft - 1
@@ -28,36 +48,46 @@ def check_float_point(i, iii):
         if dfq > dfr:
             break
     if iii == 1:
-        des_float(i, dft)
+        dec_float(i, dft)
     if iii == 0:
         i = i.replace('.', '')
-        bin_int_and_float(i, dft)
+        bin_int_and_float(i, dft, lan)
 
-def des_input():
+def dec_input(lan):
     # 2
     global z
-    diq = input('    Введите :')
-    if diq == '\\back':
+    if lan == 'ang':
+        biq = input('    Enter :')
+    if lan == 'rus':
+        biq = input('    Введите :')
+    if biq == '\help':
+        help_inter(lan)
+    if biq == '\\back':
         return
-    if diq == '\\end':
+    if biq == '\\end':
         z = 'end'
         return z
-    if diq == '':
-        print('    Enter symbol!')
+    if biq == '':
+        if lan == 'ang':
+            print('    Enter symbol!')
         return
     diw = 1
-    des_and_bin_float_check(diq, diw)
+    dec_and_bin_float_check(biq, diw, lan)
 
-def bin_input():
+def bin_input(lan):
     # 2
-    biq = input('    Введите :')
+    if lan == 'ang':
+        biq = input('    Enter :')
+    if lan == 'rus':
+        biq = input('    Введите :')
     if biq == '':
-        print('    Enter symbol!')
+        if lan == 'ang':
+            print('    Enter symbol!')
         return
     biw = 0
-    bin_check_str(biq, biw)
+    bin_check_str(biq, biw, lan)
 
-def des_int(i):
+def dec_int(i, lan):
     # 4
     dii = i
     l = []
@@ -88,7 +118,7 @@ def des_int(i):
         if Dio > dim:
             break
 
-def des_str(i):
+def dec_str(i, lan):
     dsq = {
         ' ': '00100000',
         '!': '00100001',
@@ -191,12 +221,13 @@ def des_str(i):
     print('    ', end='')
     while True:
         dsr = i[dse]
-        print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
+        if lan == 'ang':
+            print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
         dse += 1
         if dse > dsw:
             break
 
-def bin_str(i):
+def bin_str(i, lan):
     bsfe = []
     bsfr = 0
     bsfy = 1
@@ -404,14 +435,14 @@ def bin_str(i):
             bsfy += 1
             bsfe = []
 
-def des_float(i, dft):
+def dec_float(i, dft, lan):
     # 5
     dfy = i
     dfy = float(dfy)
     dfc = i[: dft]
     dfc = float(dfc)
     i = i[: dft]
-    des_int(i)
+    dec_int(i)
     dft += 1
     dfo = dfy - dfc
     dfa = []
@@ -436,7 +467,7 @@ def des_float(i, dft):
         if dfz < 0:
             break
 
-def bin_int_and_float(i, biq = 0):
+def bin_int_and_float(i, lan, biq = 0):
     # 5,3
     t = len(i)
     bit = t
@@ -453,11 +484,13 @@ def bin_int_and_float(i, biq = 0):
         g = int(i[bn])
         if g != 0:
             if g != 1:
-                print('    bin - 0 and 1')
+                if lan == 'ang':
+                    print('    bin - 0 and 1')
                 return
         if g != 1:
             if g != 0:
-                print('    bin - 0 and 1')
+                if lan == 'ang':
+                    print('    bin - 0 and 1')
                 return
         bn -= 1
         if bn <= 0:
@@ -473,7 +506,7 @@ def bin_int_and_float(i, biq = 0):
     print(bu)
 
 
-def des_and_bin_float_check(dabq, iii):
+def dec_and_bin_float_check(dabq, iii, lan):
     # 3
     i = dabq
     db = i.isdigit()
@@ -482,34 +515,40 @@ def des_and_bin_float_check(dabq, iii):
     dbb = dg.isdigit()
     if db == True and dbb == True:
         if iii == 1:
-            des_int(i)
+            dec_int(i, lan)
         if iii == 0:
-            bin_int_and_float(i)
+            bin_int_and_float(i, lan)
     if db == False and dbb == True:
-            check_float_point(i, iii)
+            check_float_point(i, iii, lan)
     if db == False and dbb == False:
             if iii == 0:
-                print('    bin - 0 and 1')
+                if lan == 'ang':
+                    print('    bin - 0 and 1')
                 return
-            des_str(i)
-
-
+            dec_str(i, lan)
+lan = ''
+if lan == '':
+    lan = 'ang'
 while True:
     # 1
     global z
-    z = input('\n   Des or bin? ')
-    z = str(z)
+    if lan == 'ang':
+        z = input('\n   Dec or bin? ')
+    if z == '\help':
+        help_inter(lan)
+        z = 'con'
     if z == 'd':
-        des_input()
+        dec_input(lan)
         if z == 'end':
             break
         z = 'con'
     if z == 'b':
-        bin_input()
+        bin_input(lan)
         z = 'con'
     if z == '\end':
         break
     if z == 'con':
         continue
     else:
-        print('d or b!')
+        if lan == 'ang':
+            print('    d or b!')

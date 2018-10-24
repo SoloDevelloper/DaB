@@ -1,14 +1,20 @@
-lan = ''
-def errors(err):
+lan = '1'
+def errors(err, lan):
     if err == 0:
         print('    bin - 0 and 1')
     if err == 2:
         print('    Enter symbol!')
     if err == 1:
         print('    d or b!')
+    call(lan)
 def language(lan):
+    lanq = 1
     if lan == 'ang':
         lan = input('    Language:')
+        lanq = 0
+    if lan == 'rus':
+        if lanq == 1:
+            lan = input('    Язык:')
     if lan == 'ang':
         lan = 'ang'
         call(lan)
@@ -40,6 +46,7 @@ def str_funk(i, diw, lan):
         bin_str(i, lan)
     if diw == 1:
         dec_str(i, lan)
+
 def bin_check_str(i, diw, lan):
     while True:
         if i[0] == '1':
@@ -49,8 +56,7 @@ def bin_check_str(i, diw, lan):
             str_funk(i, diw, lan)
             break
         else:
-            if lan == 'ang':
-                errors(0)
+            errors(0, lan)
             call(lan)
 
 def check_float_point(i, iii, lan):
@@ -65,10 +71,10 @@ def check_float_point(i, iii, lan):
         if dfq > dfr:
             break
     if iii == 1:
-        dec_float(i, dft)
+        dec_float(i, dft, lan)
     if iii == 0:
         i = i.replace('.', '')
-        bin_int_and_float(i, dft, lan)
+        bin_int_and_float(i, lan, dft)
 
 def dec_input(lan):
     # 2
@@ -85,8 +91,7 @@ def dec_input(lan):
         z = 'end'
         return z
     if biq == '':
-        if lan == 'ang':
-            errors(2)
+        errors(2, lan)
         return
     if biq == '\language':
         language(lan)
@@ -100,15 +105,14 @@ def bin_input(lan):
     if lan == 'rus':
         biq = input('    Введите :')
     if biq == '':
-        if lan == 'ang':
-            errors(2)
+        errors(2, lan)
         return
     if biq == '\language':
         language(lan)
     biw = 0
     bin_check_str(biq, biw, lan)
 
-def dec_int(i, lan):
+def dec_int(i, lan, dfq=0):
     # 4
     dii = i
     l = []
@@ -138,7 +142,8 @@ def dec_int(i, lan):
         Dio += 1
         if Dio > dim:
             break
-    call(lan)
+    if dfq == 0:
+        call(lan)
 
 def dec_str(i, lan):
     dsq = {
@@ -460,37 +465,36 @@ def bin_str(i, lan):
     call(lan)
 
 def dec_float(i, dft, lan):
-    # 5
-    dfy = i
-    dfy = float(dfy)
-    dfc = i[: dft]
-    dfc = float(dfc)
-    i = i[: dft]
-    dec_int(i)
-    dft += 1
-    dfo = dfy - dfc
-    dfa = []
-    while True:
-        dfo = dfo * 2
-        if dfo < 1:
-            dfa.append(0)
-        if dfo >= 1:
-            dfa.append(1)
-            dfo -= 1
-        if len(dfa) == 10:
-            break
-    dfz = len(dfa)
-    dfz -= 1
-    dfv = 0
-    print('00101110', end='')
-    while True:
-        dfx = dfa[dfv]
-        dfv += 1
+        # 5
+        dfy = i
+        dfy = float(dfy)
+        dfc = i[: dft]
+        dfc = float(dfc)
+        i = i[: dft]
+        dec_int(i, lan, 1)
+        dft += 1
+        dfo = dfy - dfc
+        dfa = []
+        while True:
+            dfo = dfo * 2
+            if dfo < 1:
+                dfa.append(0)
+            if dfo >= 1:
+                dfa.append(1)
+                dfo -= 1
+            if len(dfa) == 10:
+                break
+        dfz = len(dfa)
         dfz -= 1
-        print(dfx, end='')
-        if dfz < 0:
-            break
-    call(lan)
+        dfv = 0
+        print('00101110', end='')
+        while True:
+            dfx = dfa[dfv]
+            dfv += 1
+            dfz -= 1
+            print(dfx, end='')
+            if dfz < 0:
+                break
 
 def bin_int_and_float(i, lan, biq = 0):
     # 5,3
@@ -509,13 +513,11 @@ def bin_int_and_float(i, lan, biq = 0):
         g = int(i[bn])
         if g != 0:
             if g != 1:
-                if lan == 'ang':
-                    errors(0)
+                errors(0, lan)
                 return
         if g != 1:
             if g != 0:
-                if lan == 'ang':
-                    errors(0)
+                errors(0, lan)
                 return
         bn -= 1
         if bn <= 0:
@@ -548,36 +550,37 @@ def dec_and_bin_float_check(dabq, iii, lan):
             check_float_point(i, iii, lan)
     if db == False and dbb == False:
             if iii == 0:
-                if lan == 'ang':
-                    errors(0)
+                errors(0, lan)
                 return
             dec_str(i, lan)
 def call(lan):
-    if lan == '':
-        lan = 'ang'
-while True:
     # 1
-    global z
-    if lan == 'ang':
-        z = input('\n   Dec or bin? ')
-    if z == '\language':
-        language(lan)
-    if z == '\help':
-        help_inter(lan)
-        z = 'con'
-    if z == 'd':
-        dec_input(lan)
-        if z == 'end':
-            break
-        z = 'con'
-    if z == 'b':
-        bin_input(lan)
-        z = 'con'
-    if z == '\end':
-        break
-    if z == 'con':
-        continue
-    else:
+    if lan == '1':
+        lan = 'ang'
+    while True:
+        global z
         if lan == 'ang':
-            errors(1)
+            z = input('\n   Dec(d) or bin(b)? ')
+        if lan == 'rus':
+            z = input('\n   Десятеричная(d) или двоичная(b)? ')
+        if z == '\language':
+            language(lan)
+        if z == '\help':
+            help_inter(lan)
+            z = 'con'
+        if z == 'd':
+            dec_input(lan)
+            if z == 'end':
+                break
+            z = 'con'
+        if z == 'b':
+            bin_input(lan)
+            z = 'con'
+        if z == '\end':
+            break
+        if z == 'con':
+            continue
+        else:
+                errors(1, lan)
+
 call(lan)

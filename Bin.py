@@ -1,22 +1,39 @@
+lan = ''
+def errors(err):
+    if err == 0:
+        print('    bin - 0 and 1')
+    if err == 2:
+        print('    Enter symbol!')
+    if err == 1:
+        print('    d or b!')
 def language(lan):
-    lan = input('Language:')
+    if lan == 'ang':
+        lan = input('    Language:')
     if lan == 'ang':
         lan = 'ang'
-        return lan
+        call(lan)
     if lan == 'rus':
         lan = 'rus'
-        return lan
+        call(lan)
     if lan == 'ukr':
         lan = 'ukr'
-        return lan
+        call(lan)
     if lan == 'cze':
         lan = 'cze'
-        return lan
+        call(lan)
 
 def help_inter(lan):
     if lan == 'ang':
         print('    Comand: \end, \\back\n    Des - decimal. Enter: d.\n    Bin - binar. Enter: b')
-    return
+    if lan == 'rus':
+        print('    Команды: \end, \\back\n    Des - десятичная система счисления. Ввод: d.\n', end='')
+        print('Bin - двоичная система счисления. Ввод: b')
+    if lan == 'ukr':
+        print('    Команди: \end, \\back\n    Des - десяткова система числення. Ввід: d.\n', end='')
+        print('Bin - двійкова система числення')
+    if lan == 'cze':
+        print('    Týmy: \end, \\back\n    Des - desítkové číslo systému. Zadejte: d.\n', end='')
+        print('Bin - systém binárních čísel. Zadejte: b')
 
 def str_funk(i, diw, lan):
     if diw == 0:
@@ -33,8 +50,8 @@ def bin_check_str(i, diw, lan):
             break
         else:
             if lan == 'ang':
-                print('    bin - 0 and 1')
-            return
+                errors(0)
+            call(lan)
 
 def check_float_point(i, iii, lan):
     # 4
@@ -69,8 +86,10 @@ def dec_input(lan):
         return z
     if biq == '':
         if lan == 'ang':
-            print('    Enter symbol!')
+            errors(2)
         return
+    if biq == '\language':
+        language(lan)
     diw = 1
     dec_and_bin_float_check(biq, diw, lan)
 
@@ -82,8 +101,10 @@ def bin_input(lan):
         biq = input('    Введите :')
     if biq == '':
         if lan == 'ang':
-            print('    Enter symbol!')
+            errors(2)
         return
+    if biq == '\language':
+        language(lan)
     biw = 0
     bin_check_str(biq, biw, lan)
 
@@ -117,6 +138,7 @@ def dec_int(i, lan):
         Dio += 1
         if Dio > dim:
             break
+    call(lan)
 
 def dec_str(i, lan):
     dsq = {
@@ -226,6 +248,7 @@ def dec_str(i, lan):
         dse += 1
         if dse > dsw:
             break
+    call(lan)
 
 def bin_str(i, lan):
     bsfe = []
@@ -235,7 +258,7 @@ def bin_str(i, lan):
     bsfw = bsfq / 8
     print('    ', end='')
     while True:
-        if bsfy > bsfw :
+        if bsfy > bsfw:
             break
         bsfe.append(i[bsfr])
         bsfr += 1
@@ -434,6 +457,7 @@ def bin_str(i, lan):
                 print('~', end='')
             bsfy += 1
             bsfe = []
+    call(lan)
 
 def dec_float(i, dft, lan):
     # 5
@@ -466,6 +490,7 @@ def dec_float(i, dft, lan):
         print(dfx, end='')
         if dfz < 0:
             break
+    call(lan)
 
 def bin_int_and_float(i, lan, biq = 0):
     # 5,3
@@ -485,12 +510,12 @@ def bin_int_and_float(i, lan, biq = 0):
         if g != 0:
             if g != 1:
                 if lan == 'ang':
-                    print('    bin - 0 and 1')
+                    errors(0)
                 return
         if g != 1:
             if g != 0:
                 if lan == 'ang':
-                    print('    bin - 0 and 1')
+                    errors(0)
                 return
         bn -= 1
         if bn <= 0:
@@ -504,6 +529,7 @@ def bin_int_and_float(i, lan, biq = 0):
             break
     print('    ', end='')
     print(bu)
+    call(lan)
 
 
 def dec_and_bin_float_check(dabq, iii, lan):
@@ -523,17 +549,19 @@ def dec_and_bin_float_check(dabq, iii, lan):
     if db == False and dbb == False:
             if iii == 0:
                 if lan == 'ang':
-                    print('    bin - 0 and 1')
+                    errors(0)
                 return
             dec_str(i, lan)
-lan = ''
-if lan == '':
-    lan = 'ang'
+def call(lan):
+    if lan == '':
+        lan = 'ang'
 while True:
     # 1
     global z
     if lan == 'ang':
         z = input('\n   Dec or bin? ')
+    if z == '\language':
+        language(lan)
     if z == '\help':
         help_inter(lan)
         z = 'con'
@@ -551,4 +579,5 @@ while True:
         continue
     else:
         if lan == 'ang':
-            print('    d or b!')
+            errors(1)
+call(lan)

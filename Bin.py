@@ -1,20 +1,50 @@
 lan = '1'
 def errors(err, lan):
     if err == 0:
-        print('    bin - 0 and 1')
+        if lan == 'ang':
+            print('    bin - 0 and 1')
+        if lan == 'rus':
+            print('    Двоичная - 0 и 1')
+        if lan == 'ukr':
+            print('    Двійкова - 0 і 1')
+        if lan == 'cze':
+            print('    Binární - 0 a 1')
     if err == 2:
-        print('    Enter symbol!')
+        if lan == 'ang':
+            print('    Enter symbol!')
+        if lan == 'rus':
+            print('    Введи символ!')
+        if lan == 'ukr':
+            print('    Введи символ!')
+        if lan == 'cze':
+            print('    Zadejte symbol!')
     if err == 1:
-        print('    d or b!')
+        if lan == 'ang':
+            print('    d or b!')
+        if lan == 'rus':
+            print('   d или b')
+        if lan == 'ukr':
+            print('    d або b')
+        if lan == 'cze':
+            print('    b nebo b')
     call(lan)
 def language(lan):
     lanq = 1
     if lan == 'ang':
-        lan = input('    Language:')
+        lan = input('    Language: ')
         lanq = 0
     if lan == 'rus':
         if lanq == 1:
-            lan = input('    Язык:')
+            lan = input('    Язык: ')
+            lanq = 0
+    if lan == 'ukr':
+        if lanq == 1:
+            lan = input('    Мова: ')
+            lanq = 0
+    if lan == 'cze':
+        if lanq == 1:
+            lan = input('    Jazyk: ')
+            lanq = 0
     if lan == 'ang':
         lan = 'ang'
         call(lan)
@@ -83,6 +113,10 @@ def dec_input(lan):
         biq = input('    Enter :')
     if lan == 'rus':
         biq = input('    Введите :')
+    if lan == 'ukr':
+        biq = input('    Введіть:')
+    if lan == 'cze':
+        biq = input('    Zabejte:')
     if biq == '\help':
         help_inter(lan)
     if biq == '\\back':
@@ -104,6 +138,17 @@ def bin_input(lan):
         biq = input('    Enter :')
     if lan == 'rus':
         biq = input('    Введите :')
+    if lan == 'ukr':
+        biq = input('    Введіть:')
+    if lan == 'cze':
+        biq = input('    Zabejte:')
+    if biq == '\help':
+        help_inter(lan)
+    if biq == '\\back':
+        return
+    if biq == '\\end':
+        z = 'end'
+        return z
     if biq == '':
         errors(2, lan)
         return
@@ -248,8 +293,7 @@ def dec_str(i, lan):
     print('    ', end='')
     while True:
         dsr = i[dse]
-        if lan == 'ang':
-            print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
+        print(dsq.get(dsr, 'ThisSimbolNotFound'), end='')
         dse += 1
         if dse > dsw:
             break
@@ -563,6 +607,10 @@ def call(lan):
             z = input('\n   Dec(d) or bin(b)? ')
         if lan == 'rus':
             z = input('\n   Десятеричная(d) или двоичная(b)? ')
+        if lan == 'ukr':
+            z = input('\n   Десяткова(d) чи двійкова(b)? ')
+        if lan == 'cze':
+            z = input('\n   Desítková(d) nebo binární(b)? ')
         if z == '\language':
             language(lan)
         if z == '\help':

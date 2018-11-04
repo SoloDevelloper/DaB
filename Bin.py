@@ -1,4 +1,8 @@
 lan = '1'
+
+def imp_Dis():
+    import Discharge
+    Discharge()
 def errors(err, lan):
     if err == 0:
         if lan == 'ang':
@@ -28,6 +32,7 @@ def errors(err, lan):
         if lan == 'cze':
             print('    b nebo b')
     call(lan)
+
 def language(lan):
     lanq = 1
     if lan == 'ang':
@@ -577,7 +582,6 @@ def bin_int_and_float(i, lan, biq = 0):
     print(bu)
     call(lan)
 
-
 def dec_and_bin_float_check(dabq, iii, lan):
     # 3
     i = dabq
@@ -597,6 +601,7 @@ def dec_and_bin_float_check(dabq, iii, lan):
                 errors(0, lan)
                 return
             dec_str(i, lan)
+
 def call(lan):
     # 1
     if lan == '1':
@@ -616,6 +621,8 @@ def call(lan):
         if z == '\help':
             help_inter(lan)
             z = 'con'
+        if z == '\Discharge':
+            imp_Dis()
         if z == 'd':
             dec_input(lan)
             if z == 'end':

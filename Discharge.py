@@ -137,9 +137,12 @@ def inte_s(i, z):
         if Dio > dim:
             break
 
-def call():
+def call_Dis():
         while True :
             z = input('\n   Enter:   ')
+            if z == '\end':
+                import Bin
+                Bin.call()
             inp_s(z)
-call()
+call_Dis()
 

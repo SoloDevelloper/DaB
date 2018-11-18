@@ -561,11 +561,7 @@ def bin_int_and_float(i, lan, biq = 0):
     while True:
         g = int(i[bn])
         if g != 0:
-            if g != 1:
-                errors(0, lan)
-                return
-        if g != 1:
-            if g != 0:
+            if g != 1 or g != 1:
                 errors(0, lan)
                 return
         bn -= 1
@@ -637,5 +633,8 @@ def call(lan):
             continue
         else:
                 errors(1, lan)
-
-call(lan)
+try:
+    call(lan)
+except errrr as xc:
+    print('BLEEET! Error')
+    print(xc)

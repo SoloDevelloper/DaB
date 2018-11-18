@@ -1,40 +1,39 @@
 def object_ferz():
     obj = input('   Enter ferz:  ')
     pol = input('   Enter hub:   ')
-    objects = []
     obj = int(obj)
-    obje = obj
+    pol = int(pol)
+    create_objects(pol, obj)
+
+def create_objects(pol, obj):
+    objects = []
     while True:
         objects.append(1)
         objects.append(1)
         obj -= 1
+        target = len(objects) - 1
         if obj == 0:
-            check(pol, obje, objects)
+            operations(objects, pol, target)
 
-def check(pol, obje, objects):
-    index = obje * 2 - 1
-    variables = 0
-    pol = int(pol)
+def operations(objects, pol, target):
     while True:
-        variables += 1
-        objects[index] += 1
         if objects[0] > pol:
-            break
-        index3 = 1
-        while True:
-            if index3 == 0:
-                break
-            if objects[index] > pol:
-                objects[index - 1] += 1
-                objects[index] = 1
-            index3 = index - 1
-            while True:
-                if objects[index3] > pol:
-                    objects[index3 - 1] += 1
-                    objecrs[index3] = 1
-                index3 -= 1
-                if index3 == 0:
-                    break
-            print(variables)
+            print(variable)
             return
+        objects[target] = objects[target] + 1
+        steps = target
+        operation_2(steps, objects, target, pol)
+
+def operation_2(steps, objects, target, pol):
+    while True:
+        checkpoint = objects[steps]
+        if checkpoint > pol:
+            objects[steps] = 1
+            objects[steps - 1] += 1
+            steps = target
+            continue
+        steps -= 1
+        if steps < 0:
+            operations(objects, pol, target)
+
 object_ferz()
